@@ -1,0 +1,6 @@
+# don't leak secrets
+terraform.tfvars
+
+# don't check in terraform metadata or state
+.terraform
+terraform.tfstate*
