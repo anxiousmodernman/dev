@@ -17,3 +17,14 @@ data "aws_ami" "centos" {
     values = ["ebs"]
   }
 }
+
+data "terraform_remote_state" "networking" {
+  backend = "s3"
+
+  config {
+    key     = "aweg.state"
+    bucket  = "aweg-state"
+    region  = "us-west-2"
+    profile = "${var.aws_profile}"
+  }
+}
